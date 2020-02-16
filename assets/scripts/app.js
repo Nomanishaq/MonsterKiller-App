@@ -3,12 +3,26 @@ const strongAttackHandlerValue = 17;
 const monsterAttackValue = 14;
 const healValue = 20;
 
-let choseMaxLife = 100;
+
+let enterValue =  prompt('Maximum life for you and monster.','100');
+
+let choseMaxLife = parseInt(enterValue);
+if (isNaN(choseMaxLife) || choseMaxLife <= 0) {
+    choseMaxLife = 100;
+}
 let currentMonsterHealth = choseMaxLife;
 let currentPlayerHealth = choseMaxLife;
 let hasBounesLife = true;
 
 adjustHealthBars(choseMaxLife)
+
+
+
+let reSet = () =>{
+    currentMonsterHealth = currentPlayerHealth;
+    currentPlayerHealth = choseMaxLife;
+    resetGame(choseMaxLife);
+}
 
 let endRound = () =>{
     const initialPlayerHealth = currentPlayerHealth;
@@ -28,6 +42,9 @@ let endRound = () =>{
         alert('you lost the game');
     } else if (currentPlayerHealth <= 0 && currentMonsterHealth <= 0) {
         alert('drow');
+    }
+    if (currentMonsterHealth <= 0 || currentPlayerHealth <= 0) {
+        reSet();
     }
 }
 
