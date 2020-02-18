@@ -116,7 +116,7 @@ let attackMonster = mode => {
     }
     const damage = dealMonsterDamage(maxDamage);
     currentMonsterHealth -= damage;
-    writeToLog(LOG_EVENT_GAME_OVER,damage,currentMonsterHealth,currentPlayerHealth);
+    writeToLog(logEvent,damage,currentMonsterHealth,currentPlayerHealth);
 
     endRound();
 }
