@@ -141,11 +141,12 @@ let healPlayerHandler = () =>{
     currentPlayerHealth += Heal_Value;
     endRound();
 }
-let i = 0;
+let i = 0   ;
 let printLogHandler = () =>{
 for (const obj  of betterLog ) {
-    console.log(obj);
     console.log(i);
+    console.log(obj);
+    
     i ++;
 }
 
