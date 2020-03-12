@@ -14,6 +14,7 @@ let enterValue =  prompt('Maximum life for you and monster.','100');
  
 let choseMaxLife = parseInt(enterValue);
 let betterLog = [];
+let lastLogEntry;
 if (isNaN(choseMaxLife) || choseMaxLife <= 0) {
     choseMaxLife = 100;
 }
@@ -141,12 +142,23 @@ let healPlayerHandler = () =>{
     currentPlayerHealth += Heal_Value;
     endRound();
 }
-let i = 0   ;
 let printLogHandler = () =>{
+   for (let i = 0; i < 3; i++) {
+      console.log('________');
+      
+       
+   }
+  let i = 0;
 for (const obj  of betterLog ) {
-    console.log(i);
-    console.log(obj);
-    
+    if (!lastLogEntry && lastLogEntry !== 0 || lastLogEntry < i) {
+        console.log(`# ${i}`);
+        for (const key in obj) {
+            console.log(`${key} ==> ${obj[key]}`);        
+        }
+        lastLogEntry = i;
+        break;
+    }
+   
     i ++;
 }
 
